@@ -53,6 +53,11 @@ function quantity(isTrue) {
     return newValue;
 }
 
+function inputFieldClear(InputId) {
+    let inputField = document.getElementById(InputId);
+    inputField.value = '0';
+}
+
 // Phone
 document.getElementById('phone-btn-plus').addEventListener('click', function () {
     let newQuantity = updateQuantity('phone-field', true);
@@ -89,4 +94,16 @@ document.getElementById('case-btn-minus').addEventListener('click', function () 
     let quantityTotal = quantity(false);
 
     subTotal();
+});
+
+document.getElementById('phone-remove').addEventListener('click', function () {
+    let remove = inputFieldClear('phone-field');
+    let quantity = document.getElementById('total-quantity');
+    quantity.innerText = '0';
+});
+
+document.getElementById('remove-case').addEventListener('click', function () {
+    let remove = inputFieldClear('case-field');
+    let quantity = document.getElementById('total-quantity');
+    quantity.innerText = '0';
 });
